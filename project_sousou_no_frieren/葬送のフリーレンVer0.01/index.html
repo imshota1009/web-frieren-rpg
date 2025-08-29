@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>葬送のフリーレン Online - 時の彼方の旅路</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 外部CSSファイルを読み込み -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+
+        <!-- ===== スプラッシュ画面 ===== -->
+        <div id="splash-screen" class="screen active">
+            <div class="splash-box">
+                <h1>Sousou no Frieren</h1>
+                <p class="subtitle">Online - 時の彼方の旅路 -</p>
+                <button id="start-creation-button" class="game-button">旅の始まり</button>
+            </div>
+        </div>
+
+        <!-- ===== キャラクター作成画面 ===== -->
+        <div id="character-creation-screen" class="screen">
+            <h2>キャラクター作成</h2>
+            <div class="creation-form">
+                <div class="form-group">
+                    <label for="player-name">名前</label>
+                    <input type="text" id="player-name" value="フリーレン">
+                </div>
+                <div class="form-group">
+                    <p class="race-info">種族: エルフ</p>
+                </div>
+                <p class="class-info">職業: 魔法使い</p>
+                <button id="complete-creation-button" class="game-button">決定</button>
+            </div>
+        </div>
+
+        <!-- ===== メインゲーム画面 (マップ) ===== -->
+        <div id="main-game-screen" class="screen">
+            <div id="map-container"></div>
+            <div id="main-ui-container">
+                <div id="player-hud" class="ui-panel">
+                    <h3 id="hud-name"></h3>
+                    <div class="hud-bar-container">
+                        <label>HP: <span id="hp-value"></span></label>
+                        <div class="bar-outer"><div id="hp-bar" class="bar-inner"></div></div>
+                    </div>
+                    <div class="hud-bar-container">
+                        <label>MP: <span id="mp-value"></span></label>
+                        <div class="bar-outer"><div id="mp-bar" class="bar-inner"></div></div>
+                    </div>
+                    <div class="hud-bar-container">
+                        <label>EXP: <span id="exp-value"></span></label>
+                        <div class="bar-outer"><div id="exp-bar" class="bar-inner"></div></div>
+                    </div>
+                </div>
+                <div id="log-window" class="ui-panel"></div>
+                <div id="main-menu-buttons">
+                    <button id="status-button" class="game-button">ステータス</button>
+                    <button id="inventory-button" class="game-button">持ち物</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== 戦闘画面 ===== -->
+        <div id="battle-screen" class="screen">
+            <div class="battle-container">
+                <div class="battle-arena">
+                    <div id="player-battle-char" class="battle-character">
+                        <div class="battle-sprite">🧙</div>
+                        <p id="player-battle-name" class="battle-char-name"></p>
+                        <p id="player-battle-hp" class="battle-char-hp"></p>
+                    </div>
+                    <div id="enemy-battle-char" class="battle-character">
+                        <div id="enemy-sprite" class="battle-sprite"></div>
+                        <p id="enemy-battle-name" class="battle-char-name"></p>
+                        <p id="enemy-battle-hp" class="battle-char-hp"></p>
+                    </div>
+                </div>
+                <div class="battle-ui">
+                    <div id="battle-log" class="ui-panel"></div>
+                    <div id="battle-actions"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== 町の画面 ===== -->
+        <div id="town-screen" class="screen menu-screen">
+            <h2>聖都シュトラール</h2>
+            <p>活気のある大きな町だ。旅の疲れを癒やそう。</p>
+            <div class="menu-actions">
+                <button id="inn-button" class="game-button">宿屋に泊まる (10G)</button>
+                <button id="town-exit-button" class="game-button">町から出る</button>
+            </div>
+        </div>
+        
+        <!-- ===== ステータス画面 ===== -->
+        <div id="status-screen" class="screen menu-screen">
+            <h2>ステータス</h2>
+            <div id="status-grid"></div>
+            <div class="menu-actions">
+                <button id="status-close-button" class="game-button">閉じる</button>
+            </div>
+        </div>
+        
+        <!-- ===== インベントリ画面 ===== -->
+        <div id="inventory-screen" class="screen menu-screen">
+            <h2>持ち物</h2>
+            <p id="gold-display"></p>
+            <ul id="inventory-list"></ul>
+            <div class="menu-actions">
+                <button id="inventory-close-button" class="game-button">閉じる</button>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- 外部JavaScriptファイルを読み込み -->
+    <script src="script.js"></script>
+</body>
+</html>
